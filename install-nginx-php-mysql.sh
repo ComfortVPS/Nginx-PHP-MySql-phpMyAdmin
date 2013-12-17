@@ -51,13 +51,13 @@ service mysqld start; chkconfig mysqld on;
 service php-fpm start; chkconfig php-fpm on;
 
 
-wget -O /etc/nginx/nginx.conf http://www.comfortvps.com/script/shell/nginx/nginx-main-conf.txt;
+wget -O /etc/nginx/nginx.conf https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-main-conf.txt;
 
-wget -O /etc/nginx/conf.d/default.conf  http://www.comfortvps.com/script/shell/nginx/nginx-default-conf.txt;
+wget -O /etc/nginx/conf.d/default.conf  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-default-conf.txt;
 
-wget -O /etc/nginx/conf.d/example.com.conf  http://www.comfortvps.com/script/shell/nginx/nginx-custom-config-example.txt;
+wget -O /etc/nginx/conf.d/example.com.conf  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-custom-config-example.txt;
 
-wget -O /etc/nginx/conf.d/my_domain http://www.comfortvps.com/script/shell/nginx/nginx-my-domain-conf.txt;
+wget -O /etc/nginx/conf.d/my_domain https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-my-domain-conf.txt;
 
 rm -f /etc/nginx/conf.d/example_ssl.conf
 
@@ -73,16 +73,16 @@ mkdir -p /www/ip.com/custom_error_page;
 cd /www/ip.com;
 
 
-wget -O /www/ip.com/index.php  http://www.comfortvps.com/script/shell/nginx/nginx-default-index.html;
+wget -O /www/ip.com/index.php  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-default-index.html;
 
 
-wget -O /www/mysql-and-sftp-password.php  http://www.comfortvps.com/script/shell/nginx/nginx-mysql-password.html;
+wget -O /www/mysql-and-sftp-password.php  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-mysql-password.html;
 
 sed -i "s/COMFORTVPSPASSWORD/${pass2}/g" /www/mysql-and-sftp-password.php;
 
-wget -O /www/ip.com/custom_error_page/404.html  http://www.comfortvps.com/script/shell/nginx/nginx-404.html;
-wget -O /www/ip.com/custom_error_page/403.html  http://www.comfortvps.com/script/shell/nginx/nginx-403.html;
-wget -O /www/ip.com/custom_error_page/50x.html  http://www.comfortvps.com/script/shell/nginx/nginx-50x.html;
+wget -O /www/ip.com/custom_error_page/404.html  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-404.html;
+wget -O /www/ip.com/custom_error_page/403.html  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-403.html;
+wget -O /www/ip.com/custom_error_page/50x.html  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master//nginx-50x.html;
 
 wget -O /www/ip.com/phpMyAdmin4.tar.gz 'http://www.comfortvps.com/script/shell/software-download.php?file=phpmyadmin';
 tar -zxvf phpMyAdmin*.gz > /dev/null;
@@ -111,5 +111,5 @@ echo "====== More tutorials: http://goo.gl/tNFb0";
 echo -e "\n\n\n\n";
 
 
-#install command line: wget -O /tmp/install-nginx-php-mysql.sh http://www.comfortvps.com/script/shell/nginx/nginx-php-mysql.sh; sh /tmp/install-nginx-php-mysql.sh;
+#install command line: wget -O /tmp/install-nginx-php-mysql.sh https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master/install-nginx-php-mysql.sh; sh /tmp/install-nginx-php-mysql.sh;
 
