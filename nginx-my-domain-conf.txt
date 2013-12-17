@@ -1,0 +1,8 @@
+location ~* \.(jpg|jpeg|gif|css|png|js|ico)$ {
+	access_log        off;
+	expires           10d;
+}
+	
+if ($host ~* ^(www\.)?test.com) {
+	rewrite  ^(.*)$ http://google.com$1 permanent;
+}
