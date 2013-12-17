@@ -123,7 +123,7 @@ wget -O /www/ip.com/custom_error_page/50x.html  https://raw.github.com/ComfortVP
 ########## Install phpMyAdmin ##########
 
 wget -O /www/ip.com/phpmyadmin_url.txt  https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master/phpmyadmin_url.txt
-wget -O /www/ip.com/phpMyAdmin4.tar.gz -i /tmp/phpmyadmin_url.txt
+wget -O /www/ip.com/phpMyAdmin4.tar.gz -i /www/ip.com/phpmyadmin_url.txt
 
 tar -zxvf phpMyAdmin*.gz > /dev/null;
 rm -f phpMyAdmin*.gz;
@@ -159,4 +159,6 @@ echo -e "\n\n\n\n";
 # What's you need to do is: Copy and post/run below single command line via SSH root login. Wait 5-15 minutes(depending on the software download speed from your server), Everything is Done!
 
 # wget -O /tmp/install-nginx-php-mysql.sh https://raw.github.com/ComfortVPS/Nginx-PHP-MySql-phpMyAdmin/master/install-nginx-php-mysql.sh; sh /tmp/install-nginx-php-mysql.sh;
+
+
 
