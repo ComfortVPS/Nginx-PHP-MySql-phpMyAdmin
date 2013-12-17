@@ -1,0 +1,23 @@
+server {
+	server_name .example.com;
+	root   /www/example.com;
+
+    
+	#rewrite for WordPress and Drupal website
+
+	location / {
+		try_files $uri @rewrite;
+	}
+
+	location @rewrite {
+		rewrite ^(.*)$ /index.php?q=$1 last;
+	}
+
+
+	location ~ .php$ {
+		fastcgi_pass  127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /www/example.com/$fastcgi_script_name;
+		include        fastcgi_params;
+	}
+}
