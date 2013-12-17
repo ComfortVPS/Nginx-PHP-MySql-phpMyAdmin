@@ -1,0 +1,30 @@
+server {
+    server_name ~^\d+\.\d+\.\d+\.\d+$;
+    root /www/ip.com;
+
+    location ~ .php$ {
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  /www/ip.com$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+
+
+server {
+    server_name   ~^(www\.)?(?P<domain>.+)$;
+    root   /www/$domain;
+
+    include /etc/nginx/conf.d/my_domain;
+
+    location ~ ^/(403|404|405|50x).html {
+        root /www/ip.com/custom_error_page;
+    }
+
+    location ~ .php$ {
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  /www/$domain$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
